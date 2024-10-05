@@ -1,0 +1,85 @@
+
+div.field {
+    display: flex;
+    flex-direction: column;
+    div.row {
+        display: flex;
+        height: 50px;
+        div.cell {
+            width: 50px;
+            height: 100%;
+            background-color: rgba(0, 255, 0, 0.4);
+            box-sizing: border-box;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div.empty {
+
+        }
+        div.wall {
+            background: url('./wall.jpg') center center / cover no-repeat;
+        }
+        div.money {
+            background: #fff;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                padding: 10px;
+                background: url(./coin.webp) center center / contain no-repeat;
+                animation: money_animation .5s linear infinite forwards;
+            }
+        }
+        div.force {
+            animation: force_animation_rainbow .3s linear infinite;
+        }
+        div.slow {
+            background: lightcyan;
+        }
+    }
+}
+
+.robot {
+    background: red;
+    width: 50px;
+    transform: scaleX(-1);
+    height: 50px;
+    background: url('./dj.webp') center center / contain no-repeat;
+}
+
+@keyframes force_animation_rainbow {
+    0% {
+        background: red;
+    }
+    25% {
+        background: orange;
+    }
+    50% {
+        background: yellow;
+    }
+    75% {
+        background: green;
+    }
+    100% {
+        background: red;
+    }
+}
+
+@keyframes money_animation {
+    0% {
+        transform: scale(0.75);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(0.75);
+    }
+}
