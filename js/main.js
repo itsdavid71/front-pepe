@@ -99,14 +99,14 @@ class Game {
     isSlow = false
     level = 1
 
-    coinSound = new Audio('../audio/coin.wav');
-    coinDropSound = new Audio('../audio/coinDrop.mp3');
-    hitSound = new Audio('../audio/hit.mp3');
-    levelUpSound = new Audio('../audio/victory.mp3');
-    boostSound = new Audio('../audio/boost.mp3');
-    webSound = new Audio('../audio/web.mp3');
-    victorySound = new Audio('../audio/victory.mp3')
-    tavernSound = new Audio('../audio/tavern.mp3')
+    coinSound = new Audio('audio/coin.wav');
+    coinDropSound = new Audio('audio/coinDrop.mp3');
+    hitSound = new Audio('audio/hit.mp3');
+    levelUpSound = new Audio('audio/victory.mp3');
+    boostSound = new Audio('audio/boost.mp3');
+    webSound = new Audio('audio/web.mp3');
+    victorySound = new Audio('audio/victory.mp3')
+    tavernSound = new Audio('audio/tavern.mp3')
 
     constructor(root) {
         this.root = root // document.getElementById("app")
