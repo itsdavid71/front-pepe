@@ -1,0 +1,339 @@
+
+body {
+    margin: 0;
+}
+div.field {
+    display: flex;
+    flex-direction: column;
+    // background: url('../images/background/1.jpg') center center / cover no-repeat;
+    // background: url('../images/map.jpeg') center center / cover no-repeat;
+    padding: 60px;
+    width: 500px;
+    height: 500px;
+    div.row {
+        display: flex;
+        height: 50px;
+        div.cell {
+            width: 50px;
+            height: 100%;
+            // background-color: rgba(0, 255, 0, 0.4);
+            box-sizing: border-box;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div.empty {
+
+        }
+        div.wall {
+            background: url('../images/wall/wall-3.png') center center / cover no-repeat;
+        }
+        div.wall-2 {
+            background: url('../images/wall/wall-2.png') center center / cover no-repeat;
+        }
+        div.wall-1 {
+            background: url('../images/wall/wall-1.png') center center / cover no-repeat;
+        }
+        div.money {
+            // background: #fff;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                padding: 10px;
+                background: url(../images/coin.png) center center / contain no-repeat;
+                animation: money_animation .5s linear infinite forwards;
+            }
+        }
+        div.force {
+            // animation: force_animation_rainbow .3s linear infinite;
+            background: url(../images/light.png) center center / contain no-repeat;
+            background-size: 30px;
+            
+        }
+        div.slow {
+            background: url(../images/web.png) center center / contain no-repeat;
+        }
+    }
+}
+
+.background-1 {
+    background: url('../images/background/1.jpg') center center / cover no-repeat;
+}
+.background-2 {
+    background: url('../images/background/2.jpg') center center / cover no-repeat;
+}
+.background-3 {
+    background: url('../images/background/3.jpg') center center / cover no-repeat;
+}
+.background-4 {
+    background: url('../images/background/4.jpg') center center / cover no-repeat;
+}
+.background-5 {
+    background: url('../images/background/5.jpg') center center / cover no-repeat;
+}
+
+.robot {
+    background: red;
+    width: 50px;
+    height: 50px;
+    background: url('../images/player.png') center center / contain no-repeat;
+    position: relative;
+    z-index: 1;
+    image-rendering: pixelated; /* Современные браузеры */
+    image-rendering: crisp-edges; /* Вариант для старых браузеров */
+    background-size: 550px;
+    background-position: -205px -37px;
+    animation: robot-stay .75s steps(2) infinite;
+}
+
+
+
+
+@keyframes robot-stay {
+    0% {
+        background-position: -297px -37px;
+    }
+    100% {
+        background-position: -113px -37px;
+    }
+}
+
+@keyframes robot-bottom {
+    0% {
+        background-position: -297px -220px;
+    }
+    100% {
+        background-position: -113px -220px;
+    }
+}
+.robot-top {
+    background-position: -205px -220px;
+    animation: robot-bottom .75s steps(2) infinite;
+}
+.robot-right {
+    background-position: -205px -127px;
+    animation: robot-right .75s steps(2) infinite;
+}
+.robot-left {
+    background-position: -205px -127px;
+    animation: robot-right .75s steps(2) infinite;
+    transform: scaleX(-1);
+}   
+.robot-bottom {
+    background-position: -205px -37px;
+    animation: robot-stay .75s steps(2) infinite;
+}
+
+@keyframes robot-right {
+    0% {
+        background-position: -297px -127px;
+    }
+    100% {
+        background-position: -113px -127px;
+    }
+}
+
+.robot-bottom-hit {
+    animation: robot-bottom-hit .3s steps(1);
+}
+@keyframes robot-bottom-hit {
+    
+    0% {
+        background-position: -20px -588px;
+
+    }
+    30% {
+        background-position: -207px -588px;
+    }
+    60% {
+        background-position: -207px -588px;
+
+    }
+    100% {
+        background-position: -113px -220px;
+    }
+}
+
+
+.robot-top-hit {
+    animation: robot-top-hit .3s steps(1);
+}
+@keyframes robot-top-hit {
+    
+    0% {
+        background-position: -25px -770px;
+
+    }
+    30% {
+        background-position: -112px -770px;
+
+    }
+    60% {
+        background-position: -203px -770px;
+    }
+    100% {
+        background-position: -113px -220px;
+    }
+}
+
+
+
+.robot-right-hit {
+    animation: robot-right-hit .5s steps(1);
+}
+@keyframes robot-right-hit {
+    
+    0% {
+        background-position: -25px -680px;
+
+    }
+    30% {
+        background-position: -112px -680px;
+
+    }
+    60% {
+        background-position: -203px -680px;
+    }
+    100% {
+        background-position: -113px -220px;
+    }
+}
+
+
+.robot-left-hit {
+    animation: robot-left-hit .3s steps(1);
+    transform: scaleX(-1);
+}
+@keyframes robot-left-hit {
+    
+    0% {
+        background-position: -25px -680px;
+
+    }
+    30% {
+        background-position: -112px -680px;
+
+    }
+    60% {
+        background-position: -203px -680px;
+    }
+    100% {
+        background-position: -113px -220px;
+    }
+}
+
+
+// Начальная анимация робота (вращение и уменьшение)
+@keyframes robot_animation_start {
+    0% {
+        // transform: rotate(360deg)
+        // transform: scale(25) rotate(360deg);
+    }
+    100% {
+        // transform: scale(10)
+        
+    }
+}
+
+@keyframes force_animation_rainbow {
+    0% {
+        background: red;
+    }
+    25% {
+        background: orange;
+    }
+    50% {
+        background: yellow;
+    }
+    75% {
+        background: green;
+    }
+    100% {
+        background: red;
+    }
+}
+
+@keyframes money_animation {
+    0% {
+        transform: scale(0.75);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(0.75);
+    }
+}
+
+.popup {
+    position: absolute;
+    background: #0000008f;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    height: 500px;
+    z-index: 100;
+}
+.popup-field {
+    background: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.popup-title {
+    font-size: 24px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+
+#popup {
+    display: none;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    padding: 60px;
+    background: #050a29d4;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    z-index: 10;
+}
+
+#popup-content {
+    background: #fff;
+    padding: 20px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    button {
+        font-size: 18px;
+        margin-top: 20px;
+        font-weight: bold;
+        background: brown;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
