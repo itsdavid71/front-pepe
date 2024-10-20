@@ -9,6 +9,7 @@ div.field {
     // background: url('../images/map.jpeg') center center / cover no-repeat;
     padding: 60px;
     width: 500px;
+    position: relative;
     height: 500px;
     div.row {
         display: flex;
@@ -34,6 +35,12 @@ div.field {
         }
         div.wall-1 {
             background: url('../images/wall/wall-1.png') center center / cover no-repeat;
+        }
+        div.megawall {
+            background: url('../images/megawall.png') center center / cover no-repeat;
+        }
+        div.angrywall {
+            background: url('../images/magma.gif') center center / cover no-repeat;
         }
         div.money {
             // background: #fff;
@@ -93,6 +100,29 @@ div.field {
     animation: robot-stay .75s steps(2) infinite;
 }
 
+
+.enemy {
+    background: red;
+    width: 50px;
+    height: 50px;
+    background: url('../images/enemy.png') center center / contain no-repeat;
+    position: relative;
+    z-index: 1;
+    image-rendering: pixelated; /* Современные браузеры */
+    image-rendering: crisp-edges; /* Вариант для старых браузеров */
+    background-size: contain;
+    background-position: center center;
+    animation: none
+}
+
+@keyframes enemy-stay {
+    0% {
+        background-position: -5px -60px;
+    }
+    100% {
+        background-position: -225px -60px;
+    }
+}
 
 
 
@@ -317,7 +347,8 @@ div.field {
     z-index: 10;
 }
 
-#popup-content {
+
+#popup-field {
     background: #fff;
     padding: 20px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -336,4 +367,16 @@ div.field {
         border-radius: 5px;
         cursor: pointer;
     }
+}
+
+.health-bar {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+    background-color: #222;
 }
